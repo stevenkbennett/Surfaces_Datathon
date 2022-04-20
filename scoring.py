@@ -32,7 +32,7 @@ def main():
         nMAE = np.around(calc_nMAE(y_true, y_pred), 3)
         npoints = points(1 - calc_nMAE(y_true, y_pred))
         points_total += npoints
-        issue_str += "Task 1 Prediction - Density\n-----------------\n"
+        issue_str += "Task 1 Prediction - Adsorption Energy (No Coordinate Data\n-----------------\n"
         issue_str += f"Mean Absolute Error: {mae}\n"
         issue_str += f"R<sup>2</sup>: {r2}\n"
         issue_str += f"Normalised Mean Absolute Error (Assessed): {nMAE}\n"
