@@ -23,7 +23,7 @@ def main():
     points_total = 0
 
     if Path("task_1_predictions.csv").exists():
-        df = pd.read_csv("Hidden_Test_Data/Energies.csv")
+        df = pd.read_csv("data/Test_Energies.csv")
         y_true = np.array(df["Energy"])
         y_pred_df = pd.read_csv("task_1_predictions.csv", header=None)
         y_pred = [j for i in y_pred_df.to_numpy() for j in i]
@@ -42,7 +42,7 @@ def main():
         issue_str += "No results submitted for task 1 prediction\n\n"
 
     if Path("task_2_predictions.csv").exists():
-        df = pd.read_csv("Hidden_Test_Data/Energies.csv")
+        df = pd.read_csv("data/Test_Energies.csv")
         y_true = np.array(df["Energy"])
         y_pred_df = pd.read_csv("task_2_predictions.csv", header=None)
         y_pred = [j for i in y_pred_df.to_numpy() for j in i]
