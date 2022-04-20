@@ -131,3 +131,6 @@ dmypy.json
 # Local data
 Full_Dataset.csv
 Test_Energies.csv
+
+# Mac
+.DS_Store

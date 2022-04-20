@@ -9,4 +9,5 @@ The `data` directory contains the following files:
 - `Train.csv` - contains the input and output files for the training set.
 - `coordinates`
   - Files of the name `{ID}_{ADSORBANT}_STAR.xyz` contain the XYZ coordinates of surface of the metal.
-  -
+  - Files of the name `{ID}_{ADSORBANT}_COSTAR.xyz` contain the XYZ coordinates of surface of the metal with the adsorbent.
+
