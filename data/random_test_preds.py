@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 # Set random seed
-np.random.seed(42)
+np.random.seed(0)
 
 # Load data
 train_set = pd.read_csv('Train.csv')
