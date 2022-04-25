@@ -75,7 +75,7 @@ def calc_nMAE(true, pred):
     return sum(abs(true - pred)) / sum(abs(true))
 
 
-def points(score, alpha=1.2, max_points):
+def points(score, alpha=1.2, max_points=50):
     return np.minimum(
         (max_points + 2) ** (np.maximum(score, np.finfo(float).eps) ** alpha)
         - 1,
