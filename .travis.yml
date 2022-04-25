@@ -3,7 +3,6 @@ cache: pip
 branches:
   only:
     - main
-if: type = pull_request
 python:
   - "3.8"
 install:
