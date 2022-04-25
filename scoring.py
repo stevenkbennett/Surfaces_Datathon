@@ -8,6 +8,7 @@ import pandas as pd
 import numpy as np
 from github import Github
 import os
+from os.path import join
 from math import floor, log10
 from io import BytesIO
 from cryptography.fernet import Fernet
@@ -23,7 +24,7 @@ def main():
     issue_str = ""
     points_total = 0
     key = os.environ.get("KEY", None)
-
+    # workspace = os.environ.get("GITHUB_WORKSPACE", None)
     f = Fernet(key)
     with open('data/Test_Energies_Enc.csv', 'rb') as encrypted_file:
         encrypted = encrypted_file.read()
