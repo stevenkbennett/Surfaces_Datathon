@@ -10,7 +10,7 @@ from github import Github
 import os
 from math import floor, log10
 from io import BytesIO
-from cryptography import Fernet
+from cryptography.fernet import Fernet
 
 def main():
     ak = os.environ.get("GITHUB_TOKEN", None)
