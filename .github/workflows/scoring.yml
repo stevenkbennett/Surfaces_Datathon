@@ -11,8 +11,8 @@ jobs:
         with:
           name: Test_Files
           path: |
-            test_1_predictions.csv
-            test_2_predictions.csv
+            task_1_predictions.csv
+            task_2_predictions.csv
   scoring:
     runs-on: "ubuntu-latest"
     needs: job_1
