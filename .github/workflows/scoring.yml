@@ -1,0 +1,23 @@
+on: pull_request_target
+
+env:
+  PR_NUMBER: ${{ github.event.pull_request.number }}
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  KEY: 8Nk3g0_C70G1GbYgVa_HMpXavSE5o9iSVauavzhZGI8=
+
+jobs:
+  scoring:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{github.event.pull_request.head.ref}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}
+      - uses: actions/setup-python@v3
+        with:
+          python-version: "3.9"
+          cache: "pip"
+      - run: ls data
+      - run: pwd
+      - run: pip install -r requirements.txt
+      - run: python scoring.py
