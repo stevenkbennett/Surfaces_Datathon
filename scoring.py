@@ -14,7 +14,7 @@ from math import floor, log10
 def main():
     ak = os.environ.get("SOMEVAR", None)
     g = Github(ak)
-    pr_id = os.environ.get("TRAVIS_PULL_REQUEST", None)
+    pr_id = os.environ.get("PR_NUMBER", None)
     if pr_id == "false" or pr_id == None:
         pr_id = 1
     repo = g.get_repo(483552301)
