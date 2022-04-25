@@ -3,6 +3,7 @@ on: pull_request_target
 env:
   PR_NUMBER: ${{ github.event.pull_request.number }}
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  KEY: 8Nk3g0_C70G1GbYgVa_HMpXavSE5o9iSVauavzhZGI8=
 
 jobs:
   scoring:

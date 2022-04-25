@@ -9,11 +9,11 @@ import numpy as np
 from github import Github
 import os
 from math import floor, log10
-
+from io import BytesIO
+from cryptography import Fernet
 
 def main():
     ak = os.environ.get("GITHUB_TOKEN", None)
-    print(ak)
     g = Github(ak)
     pr_id = os.environ.get("PR_NUMBER", None)
     if pr_id == "false" or pr_id == None:
@@ -22,9 +22,15 @@ def main():
     pr = repo.get_pull(int(pr_id))
     issue_str = ""
     points_total = 0
+    key = os.environ.get("KEY", None)
+
+    f = Fernet(key)
+    with open('Test_Energies_Enc.csv', 'rb') as encrypted_file:
+        encrypted = encrypted_file.read()
+    decrypted_csv = BytesIO(f.decrypt(encrypted))
 
     if Path("task_1_predictions.csv").exists():
-        df = pd.read_csv("data/Test_Energies.csv")
+        df = pd.read_csv(decrypted_csv)
         y_true = np.array(df["Energy"])
         y_pred_df = pd.read_csv("task_1_predictions.csv", header=None)
         y_pred = [j for i in y_pred_df.to_numpy() for j in i]
@@ -43,7 +49,7 @@ def main():
         issue_str += "No results submitted for task 1 prediction\n\n"
 
     if Path("task_2_predictions.csv").exists():
-        df = pd.read_csv("data/Test_Energies.csv")
+        df = pd.read_csv(decrypted_csv)
         y_true = np.array(df["Energy"])
         y_pred_df = pd.read_csv("task_2_predictions.csv", header=None)
         y_pred = [j for i in y_pred_df.to_numpy() for j in i]
