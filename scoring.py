@@ -38,7 +38,7 @@ def main():
         mae = np.around(metrics.mean_absolute_error(y_true, y_pred), 3)
         r2 = np.around(metrics.r2_score(y_true, y_pred), 3)
         nMAE = np.around(calc_nMAE(y_true, y_pred), 3)
-        npoints = points(1 - calc_nMAE(y_true, y_pred))
+        npoints = points(1 - calc_nMAE(y_true, y_pred), max_points=60)
         points_total += npoints
         issue_str += "Task 1 Prediction - Adsorption Energy (No Coordinate Data\n-----------------\n"
         issue_str += f"Mean Absolute Error: {mae}\n"
@@ -57,7 +57,7 @@ def main():
         mae = np.around(metrics.mean_absolute_error(y_true, y_pred), 3)
         r2 = np.around(metrics.r2_score(y_true, y_pred), 3)
         nMAE = np.around(calc_nMAE(y_true, y_pred), 3)
-        npoints = points(1 - calc_nMAE(y_true, y_pred))
+        npoints = points(1 - calc_nMAE(y_true, y_pred), max_points=30)
         points_total += npoints
         issue_str += "Task 2 Prediction - Adsorption Energy (Coordinate Data)\n-----------------\n"
         issue_str += f"Mean Absolute Error: {mae}\n"
@@ -75,7 +75,7 @@ def calc_nMAE(true, pred):
     return sum(abs(true - pred)) / sum(abs(true))
 
 
-def points(score, alpha=1.2, max_points=45):
+def points(score, alpha=1.2, max_points):
     return np.minimum(
         (max_points + 2) ** (np.maximum(score, np.finfo(float).eps) ** alpha)
         - 1,
