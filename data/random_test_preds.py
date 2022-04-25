@@ -17,5 +17,5 @@ std = np.std(energies)
 random_preds = np.random.normal(loc=mean,scale=std,size=len_test)
 
 # Save values
-np.savetxt('task_1_predictions.csv',random_preds)
+np.savetxt('../task_1_predictions.csv',random_preds)
 
