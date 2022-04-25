@@ -12,7 +12,7 @@ from math import floor, log10
 
 
 def main():
-    ak = os.environ.get("SOMEVAR", None)
+    ak = os.environ.get("GITHUB_TOKEN", None)
     g = Github(ak)
     pr_id = os.environ.get("PR_NUMBER", None)
     if pr_id == "false" or pr_id == None:
