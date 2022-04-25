@@ -25,7 +25,7 @@ def main():
     key = os.environ.get("KEY", None)
 
     f = Fernet(key)
-    with open('Test_Energies_Enc.csv', 'rb') as encrypted_file:
+    with open('data/Test_Energies_Enc.csv', 'rb') as encrypted_file:
         encrypted = encrypted_file.read()
     decrypted_csv = BytesIO(f.decrypt(encrypted))
 
