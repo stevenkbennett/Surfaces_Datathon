@@ -1,8 +1,7 @@
 # Welcome to the IMSE Datathon!
 
 ## Data
---------
-
+-------
 Data has been obtained from the Catalysis-Hub (https://catalysis-hub.org/).
 The `data` directory contains the following files:
 - `Test_Input.csv` - contains the input data for the test set including descriptors.
